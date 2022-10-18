@@ -1,0 +1,25 @@
+<!DOC TYPE HTML>
+<html xmlns:th = "http://www.thymeleaf.otg">
+<body>
+
+<div class = "container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>이름</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each = "member : ${members}">  <!-- %{} 괄호안의 내용을 꺼냄 -->
+        <td th:text="${member.id}"></td> <!-- getId 접근 후 출력  -->
+        <td th:text="${member.name}"></td> <!-- getName 접근 후 출력 -->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+
+</html>
