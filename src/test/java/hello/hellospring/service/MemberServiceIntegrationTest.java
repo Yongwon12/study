@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -18,14 +19,12 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@Transactional // 테스트 여러번 할 수 있게 저장소 비워주는것
+@Transactional
 class MemberServiceIntegrationTest {
     @Autowired
     MemberService memberService;
     @Autowired
     MemberRepository memberRepository;
-
-
 
 
     @Test
@@ -56,21 +55,9 @@ class MemberServiceIntegrationTest {
         // 예외 던지기 코드 + 메세지 예외 던지기
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
-        /**try {
-         memberService.join(member2);
-         fail();
-         } catch (IllegalStateException e) {
-         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-         } */
 
         //then
     }
 
-    @Test
-    void findMembers() {
-    }
 
-    @Test
-    void findOne() {
-    }
 }
